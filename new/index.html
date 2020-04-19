@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>js task 3</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>my js task 3</h1>
+        
+        <script>
+            function yugioh(param) {
+  let replaced = []; // array to hold all words that replaced numbers and numbers that were not replaced
+  for (let i = 1; i <= param; i = i + 1) {
+    // variable to store the word that replaced number i
+    let replacer = "";
+    if (i % 2 == 0) {
+      //  previous value of replacer now become the previous value of replacer plus 'yu'
+      replacer = replacer + "yu";
+    }
+    if (i % 3 == 0) {
+      if (replacer === "") {
+        //  it did not meet the i % 2 === 0 condition so it is empty
+        replacer = replacer + "gi";
+      } else {
+        // met the previous conditon so not empty
+        replacer = replacer + "-gi";
+      }
+    }
+    if (i % 5 == 0) {
+      if (replacer === "") {
+        // did not meet the i % 2 === 0 and the i % 3 === 0 conditions so it is empty
+        replacer = replacer + "oh";
+      } else {
+        //  met the previous conditon so it is not empty
+        replacer = replacer + "-oh";
+      }
+    }
+    if (replacer == "") {
+      //  number did not meet any conditions
+      replaced.push(i); // we push the number i into the array
+    } else {
+      // the number i met at least one of the conditions
+      replaced.push(replacer); //push the word (replaced) that replaced the number i into the array
+    }
+  } // end of loop for each number i
+  console.log(replaced);
+  return replaced;
+}
+        </script> 
+    </body>
+</html>
